@@ -64,17 +64,6 @@ export class GameComponent implements OnInit {
   },
   ]
 
-  // playerOnePick: number = 0;
-  // playerTwoPick: number = 0;
-
-  //   players: Player[] = [{
-  //     id: 1,
-  //   },
-  //   {
-  //     id: 2
-  //   }
-  // ]
-
   request = new Subscription();
 
   result!: Player;
@@ -89,7 +78,6 @@ export class GameComponent implements OnInit {
   }
 
   playerAction(playerId: number, moveId: number) {
-    console.log(moveId)
     playerId == 1 ? this.playerOneControl.setValue(moveId) : this.playerTwoControl.setValue(moveId);
     if (this.playerOneControl.valid && this.playerTwoControl.valid) {
       this.getResult();
@@ -109,18 +97,18 @@ export class GameComponent implements OnInit {
   }
 
   getResult() {
-    this.request = this.gameService.returnWinner(this.returnPlayersState()).subscribe(z => {this.result = z});
-    }
-
-  checkDrawState(): boolean{
-    return this.result.id == 0; //fazer um enum pra listar as possibilidades de resultado?? 
+    this.request = this.gameService.returnWinner(this.returnPlayersState()).subscribe(z => { this.result = z });
   }
 
-  returnResultMove(): Move{
+  checkDrawState(): boolean {
+    return this.result.id == 0;
+  }
+
+  returnResultMove(): Move {
     return this.moveList.find(z => z.moveId == this.result.moveId)!;
   }
 
-  returnLooserMove(){
+  returnLooserMove() {
     var looserMoveId: number;
     this.result.moveId == this.playerOneControl.value ? looserMoveId = this.playerTwoControl.value : looserMoveId = this.playerOneControl.value;
     return this.moveList.find(z => z.moveId == looserMoveId)!
@@ -131,18 +119,13 @@ export class GameComponent implements OnInit {
   }
 
   returnRandomPlay(): number {
-    return Math.floor(Math.random()*this.moveList.length)
+    return Math.floor(Math.random() * this.moveList.length)
   }
 
-  restartGame(){
+  restartGame() {
     this.playerOneControl.setValue('');
     this.playerTwoControl.setValue('');
     this.playerOneControl.updateValueAndValidity();
     this.playerTwoControl.updateValueAndValidity();
   }
-
-  logIt(i: any) {
-    console.log(i)
-  }
-
 }

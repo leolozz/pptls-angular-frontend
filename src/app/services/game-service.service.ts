@@ -13,7 +13,6 @@ export class GameServiceService {
   }
 
   returnWinner(playersState: Player[]): Observable<Player>{
-    console.log(playersState)
     return this.http.post<Player>('http://localhost:5000/Game/PlayGame', playersState)
   }
 }
