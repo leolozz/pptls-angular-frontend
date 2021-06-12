@@ -127,19 +127,10 @@ export class GameComponent implements OnInit {
   }
 
   returnRotationAngle(index: number): string {
-
-    // var deg = (360 / this.moveList.length) * index
-    // return deg.toString();
     return ((360 / this.moveList.length) * index).toString()
   }
 
   returnRandomPlay(): number {
-
-    // let ran = Math.random()
-
-    // let result = Math.floor(ran * 5);
-    // return result
-
     return Math.floor(Math.random()*this.moveList.length)
   }
 
