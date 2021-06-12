@@ -1,10 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faHandLizard, faHandPaper, faHandRock, faHandScissors, faHandSpock } from '@fortawesome/free-solid-svg-icons';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FormControl, Validators } from '@angular/forms';
 import { Subscription, zip } from 'rxjs';
 import { Move } from '../classes/move';
 import { Player } from '../classes/player';
@@ -37,7 +33,7 @@ import { GameServiceService } from '../services/game-service.service';
 })
 export class GameComponent implements OnInit {
 
-  moveList: Move[] = [{
+  moveList: Move[] = [{ //getMoveList endpoint
     moveName: "rock",
     moveId: 0,
     icon: 'fa-hand-rock',
