@@ -1,5 +1,5 @@
 ## Rock, Paper, Scissors, Lizard, Spock game web application.
-Default Rock, Paper, Scissors game is a great way to take decisions based on luck, but it commonly ends in a draw match. Based on that situation, *"Rock, Paper, Scissors, Lizard, Spock"* adds two new move options, lowering the chances of a draw ending.
+Default Rock, Paper, Scissors game is a great way to take decisions based on luck, but it commonly ends in a draw match. Based on that situation, *"Rock, Paper, Scissors, Lizard, Spock"* adds two new move options, lowering the chances of a draw outcome.
 
 This is the project of an web application that runs an interface for the game Rock, Paper, Scissors, Lizard, Spock and connects to an endpoint to return the match results, according to the game rules developed by Sam Kass.
 
