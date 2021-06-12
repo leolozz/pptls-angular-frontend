@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div>
+            <mat-icon style="vertical-align: unset; margin-right: 10px;" fontSet="fa" fontIcon="fa-hand-rock">
+            </mat-icon>
+            <mat-icon style="vertical-align: unset; margin-right: 10px;" fontSet="fa" fontIcon="fa-hand-paper">
+            </mat-icon>
+            <mat-icon style="vertical-align: unset; margin-right: 10px;" fontSet="fa" fontIcon="fa-hand-scissors">
+            </mat-icon>
+            <mat-icon style="vertical-align: unset; margin-right: 10px;" fontSet="fa" fontIcon="fa-hand-lizard">
+            </mat-icon>
+            <mat-icon style="vertical-align: unset;" fontSet="fa" fontIcon="fa-hand-spock"></mat-icon>
+        </div>
+        <span class="flexExpand"></span>
+        <p style="font-size: 16px;">rules</p>
+        <button mat-icon-button matTooltip="check rules" (click)="openRulesDialog()">
+                <mat-icon>
+                    help
+                </mat-icon>
+            </button>
+
+        <p style="font-size: 16px;">about</p>
+
+        <button mat-icon-button matTooltip="about" (click)="openInfoDialog()">
+                <mat-icon>
+                    info
+                </mat-icon>
+            </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<app-game></app-game>

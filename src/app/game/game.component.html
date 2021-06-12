@@ -1,0 +1,92 @@
+<!-- <header>
+    <h1>
+        Rock, paper, scissors... LIZZARD, SPOCK!
+        <mat-icon fontSet="fa" fontIcon="fa-hand-lizard"></mat-icon>
+    </h1>
+</header> -->
+
+<body>
+    <div class="component">
+
+        <div *ngIf="!playerOneControl.valid" style="text-align: center;">
+            <div @enterLeaveTrigger>
+                <h1 style="margin-top: 1em">player one</h1>
+                <p style="margin-bottom: 5em;">choose your move</p>
+            </div>
+
+            <div @actionTrigger class="circle-container">
+
+                <a href="#" class="center">
+                    <button mat-fab (click)=playerAction(1,returnRandomPlay()) matTooltip="random" color="primary">
+                        <mat-icon style="vertical-align: unset;" fontSet="fa" fontIcon="fa-dice-five"></mat-icon>
+                    </button>
+                </a>
+
+                <a href="#" *ngFor="let move of moveList; let i = index" class="deg{{returnRotationAngle(i)}}">
+                    <button mat-fab (click)=playerAction(1,move.moveId) matTooltip="{{move.moveName}}" color="accent">
+                        <mat-icon style="vertical-align: unset;" fontSet="fa" fontIcon="{{move.icon}}"></mat-icon>
+                    </button>
+                    <!-- <p>{{i}}</p> -->
+                </a>
+            </div>
+        </div>
+
+        <div *ngIf="playerOneControl.valid && !playerTwoControl.valid" style="text-align: center;">
+            <div @enterLeaveTrigger>
+                <h1 style="margin-top: 1em">player two</h1>
+                <p style="margin-bottom: 5em;">choose your move</p>
+            </div>
+
+            <div @actionTrigger class="circle-container">
+                <a href="#" class="center">
+                    <button mat-fab (click)=playerAction(2,returnRandomPlay()) matTooltip="random" color="primary">
+                        <mat-icon style="vertical-align: unset;" fontSet="fa" fontIcon="fa-dice-five"></mat-icon>
+                    </button>
+                </a>
+
+                <a href="#" *ngFor="let move of moveList; let i = index" class="deg{{returnRotationAngle(i)}}">
+                    <button mat-fab (click)=playerAction(2,move.moveId) matTooltip="{{move.moveName}}" color="warn">
+                        <mat-icon style="vertical-align: unset;" fontSet="fa" fontIcon="{{move.icon}}"></mat-icon>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div *ngIf="playerTwoControl.valid && request && !request.closed" style="text-align: center;">
+            <mat-spinner style="margin: 2em auto;"></mat-spinner>
+            <p>and the winner is...</p>
+        </div>
+
+        <div *ngIf="request.closed && playerTwoControl.valid" style="text-align: center;">
+            <div @enterLeaveTrigger>
+                <div *ngIf=!checkDrawState()>
+                    <h1 style="margin-top: 1em">the winner is</h1>
+                    <h2 style="margin-bottom: 1em;">player {{result.id}}</h2>
+                    <div>
+                        <mat-icon color="accent" style="vertical-align: unset; height: unset; width: unset;" fontSet="fa" fontIcon="{{returnResultMove().icon}}" class="fa-5x"></mat-icon>
+                    </div>
+                    <h3 style="margin-bottom: 1em;">{{returnResultMove().moveName}}</h3>
+                    <br>
+                    <p>over {{returnLooserMove().moveName}}
+                        <mat-icon>
+                            <mat-icon color="primary" style="vertical-align: unset; height: unset; width: unset;" fontSet="fa" fontIcon="{{returnLooserMove().icon}}"></mat-icon>
+                        </mat-icon>
+                    </p>
+                    <button mat-button style="background-color: #ff4081; color: white;" (click)="restartGame()">restart
+                        game</button>
+                </div>
+                <div *ngIf=checkDrawState()>
+                    <h1 style="margin-top: 1em">it's a draw!</h1>
+                    <h2 style="margin-bottom: 1em;">both played</h2>
+                    <div>
+                        <mat-icon color="accent" style="vertical-align: unset; height: unset; width: unset;" fontSet="fa" fontIcon="{{returnResultMove().icon}}" class="fa-5x"></mat-icon>
+                    </div>
+                    <h3 style="margin-bottom: 1em;">{{returnResultMove().moveName}}</h3>
+                    <br>
+                    <button mat-button style="background-color: #ff4081; color: white;" (click)="restartGame()">restart
+                        game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

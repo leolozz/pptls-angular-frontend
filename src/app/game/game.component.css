@@ -1,0 +1,53 @@
+.component {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.selection {
+    align-self: center;
+}
+
+.circle-container {
+    position: relative;
+    width: 5em;
+    height: 5em;
+    padding: 2.8em;
+    border-radius: 50%;
+    margin: 1.75em auto 0;
+}
+
+.circle-container a {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4em;
+    height: 4em;
+    margin: -2em;
+}
+
+.circle-container img {
+    display: block;
+    width: 100%;
+}
+
+.deg0 {
+    transform: translate(5em);
+}
+
+.deg72 {
+    transform: rotate(72deg) translate(5em) rotate(-72deg);
+}
+
+.deg144 {
+    transform: rotate(144deg) translate(5em) rotate(-144deg);
+}
+
+.deg216 {
+    transform: rotate(216deg) translate(5em) rotate(-216deg);
+}
+
+.deg288 {
+    transform: rotate(288deg) translate(5em) rotate(-288deg);
+}
